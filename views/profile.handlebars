@@ -16,6 +16,26 @@
     <h2>Welcome, {{name}}!</h2>
   </div>
 </div>
+<div class="col-md-6">
+    <h2>Edit Profile:</h2>
+    <form class="form Edit-form">
+      <div class="form-group">
+        <label for="edit-name">username:</label>
+        <input class="form-input" type="text" id="edit-name" />
+      </div>
+      <div class="form-group">
+        <label for="edit-email">email:</label>
+        <input class="form-input" type="text" id="edit-email" />
+      </div>
+      <div class="form-group">
+        <label for="edit-password">password:</label>
+        <input class="form-input" type="password" id="edit-password" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">Update</button>
+      </div>
+    </form>
+  </div>
 
 {{#if isOrganizer}}
 <div class="row mt-4">

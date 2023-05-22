@@ -1,19 +1,26 @@
-const subButtonHandler = async (event) => {
-    if (event.target.hasAttribute('data-id')) {
-        const event_id = event.target.getAttribute('data-id');
-    
-    const response = await fetch(`/api/event/${event_id}`, {
-        method: 'POST',
-    });
+const subscribeButtonHandler = async (event) => {
+  event.preventDefault();
 
-    if (response.ok) {
-        document.location.replace(`/event/${event_id}`);
+  if (event.target.hasAttribute('data-id')) {
+    const event_id = event.target.getAttribute('data-id');
+
+    try {
+      const response = await fetch(`/api/event/${event_id}`, {
+        method: 'POST',
+      });
+
+      if (response.ok) {
+        alert('Subscribed to event successfully');
+        document.location.reload();
       } else {
         alert('Failed to subscribe to event');
       }
+    } catch (err) {
+      console.error(err);
+      alert('An error occurred while subscribing to event');
     }
+  }
 };
-
-document
-.querySelector('.sub-event')
-.addEventListener('click', subButtonHandler);
+if(document.querySelector('.btn-dark')){
+document.querySelector('.btn-dark').addEventListener('click', subscribeButtonHandler);
+}

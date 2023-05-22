@@ -1,11 +1,17 @@
-<div class="text-center">
+{{#if logged_in}}
+<div class="text-center sub-event">
   <h2>{{name}}</h2>
   <p>{{description}}</p>
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
+  <p>Created by {{user}} on {{format_date date_created}}</p>
   <p>
     <span for="img" aria-label="person">💲</span>
   </p>
   <p>
-    <button class="btn btn-primary">Sign up for this Event!</button>
+    <button class="btn btn-primary" data-id="{{event_id}}">Sign up for this Event!</button>
+  </p>
+  <p> 
+    <button class="btn btn-primary">DELETE EVENT</button>
   </p>
 </div>
+<script src="/public/js/event.js"></script>
+{{/if}}

@@ -38,10 +38,11 @@ router.delete('/:event_id', withAuth, async (req, res) => {
 
 // this route will take in the event_id and user_id and add the event to the user through the subscription table
 router.post('/:event_id', withAuth, async (req, res) => {
+  console.log('working route')
   try {
     const user = await User.findByPk(req.session.user_id);
     const event = await Event.findByPk(req.params.event_id);
-
+    
     if (!user || !event) {
       res.status(404).json({ message: 'Nah Fam!' });
       return;
